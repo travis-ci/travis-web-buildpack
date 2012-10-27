@@ -1,1 +1,3 @@
 #!/bin/sh
+
+cat $1/last_pack_release.out.backup

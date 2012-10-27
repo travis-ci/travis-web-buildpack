@@ -1,4 +1,7 @@
 #!/bin/sh
 
+# Save result of the previous buildpack:
+cat $1/last_pack_release.out > $1/last_pack_release.out.backup
+
 echo "I should compile assets here"
 echo "ENV == $ENV"
