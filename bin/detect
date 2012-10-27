@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.expand_path('../../lib', __FILE__)
+require 'assets_pack'
+
+if AssetsPack.detect(ARGV.first)
+  puts 'AssetsPack'
+  exit 0
+else
+  puts 'no'
+  exit 1
+end
