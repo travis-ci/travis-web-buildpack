@@ -1,9 +1,14 @@
 #!/bin/sh
 
+indent() {
+  sed -u 's/^/       /'
+}
+
+
 # Save result of the previous buildpack:
 cat $1/last_pack_release.out > $1/last_pack_release.out.backup
 
-echo "Compiling assets using production environment"
+echo "Compiling assets using production environment" | indent
 cd $1
 
 # install node for js runtime
