@@ -3,5 +3,16 @@
 # Save result of the previous buildpack:
 cat $1/last_pack_release.out > $1/last_pack_release.out.backup
 
-echo "I should compile assets here"
-echo "ENV == $ENV"
+echo "Compiling assets using production environment"
+cd $1
+
+# install node for js runtime
+mkdir -p bin
+cd bin
+curl https://s3.amazonaws.com/heroku-buildpack-ruby/node-0.4.7.tgz -s -o - | tar xzf -
+chmod +x node
+cd ..
+
+# compile assets and copy minified version
+ENV=production GEM_PATH=vendor/bundle/ruby/1.9.1 PATH=bin:$PATH rakep build
+cp public/scripts/app.min.js public/scripts/app.js
