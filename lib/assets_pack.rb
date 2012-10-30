@@ -5,7 +5,7 @@ module AssetsPack
   def self.detect(dir)
     Dir.chdir(dir)
 
-    File.exists?('AssetFile')
+    File.exists?('Assetfile')
   end
 
 end
