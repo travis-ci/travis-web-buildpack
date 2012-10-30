@@ -1,12 +1,9 @@
-#!/usr/bin/env ruby
+#!/bin/sh
 
-$:.unshift File.expand_path('../../lib', __FILE__)
-require 'assets_pack'
-
-if AssetsPack.detect(ARGV.first)
-  puts 'AssetsPack'
+if [ -f $1/Assetfile ]; then
+  echo "AssetPackager"
   exit 0
 else
-  puts 'no'
+  echo "Assetfile not found"
   exit 1
-end
+fi
