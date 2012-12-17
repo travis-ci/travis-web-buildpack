@@ -8,7 +8,7 @@ indent() {
 # Save result of the previous buildpack:
 cat $1/last_pack_release.out > $1/last_pack_release.out.backup
 
-echo "Compiling assets using $ASSETS_ENV environment" | indent
+echo "Compiling assets using production environment" | indent
 cd $1
 
 # install node for js runtime
@@ -19,5 +19,5 @@ chmod +x node
 cd ..
 
 # compile assets and copy minified version
-ENV=$ASSETS_ENV GEM_PATH=vendor/bundle/ruby/1.9.1 PATH=bin:$PATH rakep build
+ENV=production GEM_PATH=vendor/bundle/ruby/1.9.1 PATH=bin:$PATH rakep build
 cp public/scripts/app.min.js public/scripts/app.js
