@@ -19,4 +19,5 @@ chmod +x node
 cd ..
 
 # compile assets and copy minified version
-ENV=production GEM_PATH=vendor/bundle/ruby/1.9.1 PATH=bin:$PATH bundle exec rakep build
+export GEM_PATH=`ruby -e "require 'rbconfig';puts \"vendor/bundle/#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\""`:$GEM_PATH
+ENV=production PATH=bin:$PATH bundle exec rakep build
