@@ -19,4 +19,4 @@ chmod +x node
 cd ..
 
 # compile assets and copy minified version
-ENV=production GEM_PATH=vendor/bundle/ruby/1.9.1 PATH=bin:$PATH bundle exec rakep build
+ENV=production PATH=bin:$PATH rakep build
