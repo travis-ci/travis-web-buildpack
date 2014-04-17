@@ -19,6 +19,6 @@ chmod +x node
 cd ..
 
 # compile assets and copy minified version
-SLUG_VENDOR_BASE=`ruby -e "require 'rbconfig';puts \"vendor/bundle/#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\""`
+SLUG_VENDOR_BASE=`ruby -e "require 'rbconfig';puts \"/app/vendor/bundle/#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\""`
 export GEM_PATH=$SLUG_VENDOR_BASE:$GEM_PATH
-ENV=production PATH=$SLUG_VENDOR_BASE/bin:bin:$PATH bundle exec rakep build
+PATH=$SLUG_VENDOR_BASE/bin:bin:$PATH ENV=production bundle exec rakep build
