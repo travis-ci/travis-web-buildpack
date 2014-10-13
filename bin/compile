@@ -18,7 +18,9 @@ curl https://s3.amazonaws.com/heroku-buildpack-ruby/node-0.4.7.tgz -s -o - | tar
 chmod +x node
 cd ..
 
+env=${ENV:-production}
+
 # compile assets and copy minified version
 SLUG_VENDOR_BASE=`ruby -e "require 'rbconfig';puts \"/app/vendor/bundle/#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\""`
 export GEM_PATH=$SLUG_VENDOR_BASE:$GEM_PATH
-PATH=$SLUG_VENDOR_BASE/bin:bin:$PATH ENV=production bundle exec rakep build
+PATH=$SLUG_VENDOR_BASE/bin:bin:$PATH ENV=$env bundle exec rakep build
