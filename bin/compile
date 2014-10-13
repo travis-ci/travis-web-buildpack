@@ -22,6 +22,7 @@ cd ..
 env=${ENV:-production}
 
 echo $ENV_DIR
+ls -al $ENV_DIR
 
 # compile assets and copy minified version
 SLUG_VENDOR_BASE=`ruby -e "require 'rbconfig';puts \"/app/vendor/bundle/#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\""`
