@@ -20,7 +20,7 @@ chmod +x node
 cd ..
 
 
-env=$(cat $ENV_DIR/ENV)
+[ -f $ENV_DIR/ENV ] && env=$(cat $ENV_DIR/ENV)
 env=${env:-production}
 
 # compile assets and copy minified version
