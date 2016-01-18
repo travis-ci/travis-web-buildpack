@@ -27,6 +27,3 @@ env=${env:-production}
 SLUG_VENDOR_BASE=`ruby -e "require 'rbconfig';puts \"/app/vendor/bundle/#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\""`
 export GEM_PATH=$SLUG_VENDOR_BASE:$GEM_PATH
 PATH=$SLUG_VENDOR_BASE/bin:bin:$PATH ENV=$env bundle exec rakep build
-if [ -x script/prepare_deploy ]; then
-  script/prepare_deploy
-fi
